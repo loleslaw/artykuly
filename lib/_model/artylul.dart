@@ -8,11 +8,11 @@ class Artykul {
 
   Artykul(this.id, this.category, this.title, this.url);
 
-  Artykul.fromSnapshot(DataSnapshot data) 
-    : id = data.key,
-      category = data.value['category'],
-      title = data.value['title'],
-      url = data.value['url'];
+  Artykul.fromSnapshot({String key, Map data}) 
+    : id = key,
+      category = data['category'] ?? '',
+      title = data['title'] ?? '',
+      url = data['url'] ?? '';
 
   toJson() {
     return {
